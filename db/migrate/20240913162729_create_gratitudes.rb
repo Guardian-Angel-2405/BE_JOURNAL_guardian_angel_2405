@@ -3,6 +3,7 @@ class CreateGratitudes < ActiveRecord::Migration[7.1]
     create_table :gratitudes do |t|
       t.string :user_id
       t.string :gratitude
+      t.string :date
 
       t.timestamps
     end
