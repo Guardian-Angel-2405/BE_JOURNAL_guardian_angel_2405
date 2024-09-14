@@ -31,3 +31,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/coverage/
+echo coverage >> .gitignore
+# ignores stupid annoying dumb HUGE coverage files

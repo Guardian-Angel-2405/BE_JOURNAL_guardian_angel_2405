@@ -36,15 +36,18 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 gem "jsonapi-serializer"
 
+gem "shoulda-matchers"
+
 gem 'simplecov', require: false, group: :test
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  gem 'debug', platforms: %i[ mri windows ]
   gem 'rspec-rails'
-  gem "factory_bot_rails"
-  gem "faker"
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry'
+  gem 'capybara'
 end
 
 group :development do
