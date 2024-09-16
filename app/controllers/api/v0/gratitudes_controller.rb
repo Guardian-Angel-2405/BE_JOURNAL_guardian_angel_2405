@@ -6,19 +6,18 @@ class Api::V0::GratitudesController < ApplicationController
   end
 
   def index # returns all dates for a given user
-    gratitudes = Gratitude.all
-    user = params[:user_id]
-    user_grats = gratitudes.where(user_id: user)
+    user_grats = Gratitude.where(user_id: params[:user_id])
     render json: DateSerializer.new(user_grats)
   end
 
   def show # returns all entries for a given date and user
-    gratitudes = Gratitude.all
-    user = params[:user_id]
-    entry_date = params[:date]
-    user_grats = gratitudes.where(user_id: user, date: entry_date)
-    render json: EntrySerializer.new(user_grats)
-  end
+    user_grats = Gratitude.where(user_id: params[:user_id], date: params[:date])
+    if user_grats.length == 0
+      render json: ErrorSerializer.error_json, status: :not_found
+    else
+      render json: EntrySerializer.new(user_grats)
+    end
+  end # did not use begin/rescue because an empty array is truthy
   
   def destroy 
     gratitude = Gratitude.find(params[:id])
