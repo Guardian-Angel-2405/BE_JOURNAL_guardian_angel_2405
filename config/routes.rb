@@ -10,10 +10,8 @@ Rails.application.routes.draw do
 
   namespace :api do 
     namespace :v0 do 
-      
       post "/gratitudes", to: "gratitudes#create"
       get "/gratitudes/:user_id/dates", to: "gratitudes#index"
-      
     end
   end
 end
