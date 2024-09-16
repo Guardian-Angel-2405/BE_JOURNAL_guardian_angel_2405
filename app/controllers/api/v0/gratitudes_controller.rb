@@ -10,6 +10,7 @@ class Api::V0::GratitudesController < ApplicationController
     user = params[:user_id]
     user_grats = gratitudes.where(user_id: user)
     render json: DateSerializer.new(user_grats)
+  end
 
   def destroy 
     gratitude = Gratitude.find(params[:id])
