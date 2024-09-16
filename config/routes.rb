@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       
       post "/gratitudes", to: "gratitudes#create"
       
+      delete "/gratitudes/:id", to: "gratitudes#destroy"
     end
   end
 end
