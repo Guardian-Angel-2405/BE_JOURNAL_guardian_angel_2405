@@ -5,6 +5,11 @@ class Api::V0::GratitudesController < ApplicationController
     render json: GratitudeSerializer.new(gratitude), status: 201
   end
 
+  def destroy 
+    gratitude = Gratitude.find(params[:id])
+    gratitude.destroy
+  end
+
   private
   def gratitude_params
     params.require(:gratitude).permit(:user_id, :entry, :date)

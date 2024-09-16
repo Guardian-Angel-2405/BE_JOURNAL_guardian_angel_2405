@@ -191,8 +191,8 @@
           1,
           1,
           1,
-          2,
-          2,
+          4,
+          4,
           null,
           null
         ]
@@ -212,6 +212,30 @@
           1,
           1,
           null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/corybretsch/turing/mod_3/consultancy/BE_JOURNAL_guardian_angel_2405/spec/requests/api/v0/destroy_gratitude_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
           1,
           null,
           null,
@@ -246,6 +270,11 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -264,6 +293,6 @@
         ]
       }
     },
-    "timestamp": 1726357286
+    "timestamp": 1726504907
   }
 }
