@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Create" do 
+RSpec.describe "Create" do 
   describe "happy path" do 
     it "can create a gratitude entry" do 
       gratitude1 = create(:gratitude, user_id: 1)

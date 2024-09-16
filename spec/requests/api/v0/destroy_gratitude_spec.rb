@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Destroy" do 
+RSpec.describe "Destroy" do 
   describe "happy path" do 
     it "can delete a gratitude entry" do 
       gratitude1 = create(:gratitude, user_id: 1)
