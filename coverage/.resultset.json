@@ -243,6 +243,23 @@
           null
         ]
       },
+      "/Users/corybretsch/turing/mod_3/consultancy/BE_JOURNAL_guardian_angel_2405/spec/services/affirmation_service_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/corybretsch/turing/mod_3/consultancy/BE_JOURNAL_guardian_angel_2405/app/models/gratitude.rb": {
         "lines": [
           1,
@@ -291,8 +308,19 @@
           1,
           null
         ]
+      },
+      "/Users/corybretsch/turing/mod_3/consultancy/BE_JOURNAL_guardian_angel_2405/app/services/affirmation_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1726504907
+    "timestamp": 1726518438
   }
 }
