@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe 'Affirmation' do 
-  it 'searches our API for a food item' do
+  it 'retrievs a positive affirmation from the API' do
     VCR.use_cassette("affirmation_api") do
       affirmation = AffirmationService.obtain
 
