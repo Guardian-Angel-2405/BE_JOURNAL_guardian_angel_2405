@@ -1,6 +1,5 @@
 class AffirmationFacade
   def self.affirmation_response
-    response = AffirmationService.obtain
-    aff = Affirmation.new(response)
+    AffirmationService.obtain
   end
 end
