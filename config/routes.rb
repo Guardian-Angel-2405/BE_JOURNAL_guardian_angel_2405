@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v0 do 
       post "/gratitudes", to: "gratitudes#create"
       get "/gratitudes/:user_id/dates", to: "gratitudes#index"
+      get "/gratitudes/:user_id/dates/:date", to: "gratitudes#show"
       delete "/gratitudes/:id", to: "gratitudes#destroy"
     end
   end
