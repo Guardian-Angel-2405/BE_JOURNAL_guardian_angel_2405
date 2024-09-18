@@ -13,7 +13,7 @@ RSpec.describe 'Gratitude Date Show', type: :request do
     get "/api/v0/gratitudes/#{gratitude1.user_id}/dates/#{gratitude1.date}"
     
     entries = JSON.parse(response.body, symbolize_names: true)[:data]
-    
+
     expect(entries.count).to eq(3)
 
     entries.each do |user_entry|
