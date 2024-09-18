@@ -25,13 +25,18 @@ RSpec.describe 'Gratitude Dates Index', type: :request do
       expect(date[:attributes]).to have_key(:date)
       expect(date[:attributes][:date]).to be_a(String)
 
+      expect(date[:attributes][:quote]).to have_key(:affirmation)
+      expect(date[:attributes][:quote]).to be_a(Hash)
+
       expect(date[:attributes]).to_not have_key(:entry)
       expect(date[:attributes][:entry]).to_not be_a(String)
     end
 
     first_date = dates.first
+
     expect(first_date[:attributes][:user_id]).to eq("1")
     expect(first_date[:attributes][:date]).to eq("2024-09-11")
+    expect(first_date[:attributes][:quote][:affirmation]).to be_a(String)
   end
 
   it 'returns all dates that another user has entered gratitudes' do

@@ -9,7 +9,7 @@ RSpec.describe 'Gratitude Date Show', type: :request do
 
     gratitude5 = create(:gratitude, user_id: 2, date: "2024-09-13")
     gratitude6 = create(:gratitude, user_id: 2, date: "2024-09-13")
-    
+
     get "/api/v0/gratitudes/#{gratitude1.user_id}/dates/#{gratitude1.date}"
     
     entries = JSON.parse(response.body, symbolize_names: true)[:data]
@@ -25,6 +25,9 @@ RSpec.describe 'Gratitude Date Show', type: :request do
 
       expect(user_entry[:attributes]).to have_key(:entry)
       expect(user_entry[:attributes][:entry]).to be_a(String)
+
+      expect(user_entry[:attributes][:quote]).to have_key(:affirmation)
+      expect(user_entry[:attributes][:quote]).to be_a(Hash)
 
       expect(user_entry[:attributes]).to_not have_key(:date)
       expect(user_entry[:attributes][:date]).to_not be_a(String)
@@ -44,10 +47,13 @@ RSpec.describe 'Gratitude Date Show', type: :request do
     error = JSON.parse(response.body, symbolize_names: true)
 
     expect(error).to have_key(:errors)
+    expect(error).to have_key(:quote)
     expect(error).to be_a(Hash)
 
     expect(error[:errors]).to be_an(Array)
     expect(error[:errors][0][:status]).to eq("404")
     expect(error[:errors][0][:detail]).to eq("No Results :(")
+    
+    expect(error[:quote][:affirmation]).to be_a(String)
   end
 end

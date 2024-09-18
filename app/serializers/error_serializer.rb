@@ -6,7 +6,8 @@ class ErrorSerializer
         status: '404',
         detail: "No Results :("
       }
-    ]
+    ],
+    quote: AffirmationFacade.affirmation_response,
   }
   end
 end
