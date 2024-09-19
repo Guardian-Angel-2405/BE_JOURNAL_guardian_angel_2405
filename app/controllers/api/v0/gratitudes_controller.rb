@@ -12,7 +12,6 @@ class Api::V0::GratitudesController < ApplicationController
     else
       render json: gratitude.errors, status: :unprocessable_entity
     end
-    binding.pry
   end
 
   def index # returns all dates for a given user
@@ -21,7 +20,8 @@ class Api::V0::GratitudesController < ApplicationController
   end
 
   def show # returns all entries for a given date and user
-    user_grats = Gratitude.where(user_id: params[:user_id], date: params[:date])
+    user_grats = gratitude_params
+    # user_grats = Gratitude.where(user_id: params[:user_id], date: params[:date])
     if user_grats.length == 0
       render json: ErrorSerializer.error_json, status: :not_found
     else
