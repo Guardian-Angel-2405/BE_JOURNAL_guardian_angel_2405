@@ -13,7 +13,7 @@ RSpec.describe "Create" do
 
       headers = {"CONTENT_TYPE" => "application/json"}
       expect(Gratitude.count).to be 1
-      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude: gratitude_attrs, user_id: gratitude_attrs[:user_id])
+      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude_attrs, user_id: gratitude_attrs[:user_id])
     
       expect(response).to be_successful
       expect(Gratitude.count).to be 2
@@ -49,7 +49,7 @@ RSpec.describe "Create" do
 
       headers = {"CONTENT_TYPE" => "application/json"}
       expect(Gratitude.count).to be 1
-      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude: gratitude_attrs, user_id: gratitude_attrs[:user_id])
+      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude_attrs, user_id: gratitude_attrs[:user_id])
 
       expect(response).to_not be_successful
       expect(response.status).to eq(422)
@@ -72,7 +72,7 @@ RSpec.describe "Create" do
 
       headers = {"CONTENT_TYPE" => "application/json"}
       expect(Gratitude.count).to be 1
-      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude: gratitude_attrs, user_id: gratitude_attrs[:user_id])
+      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude_attrs, user_id: gratitude_attrs[:user_id])
 
       expect(response).to_not be_successful
       expect(response.status).to eq(422)
@@ -95,7 +95,7 @@ RSpec.describe "Create" do
 
       headers = {"CONTENT_TYPE" => "application/json"}
       expect(Gratitude.count).to be 1
-      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude: gratitude_attrs, user_id: gratitude_attrs[:user_id])
+      post "/api/v0/gratitudes", headers: headers, params: JSON.generate(gratitude_attrs, user_id: gratitude_attrs[:user_id])
 
       expect(response).to_not be_successful
       expect(response.status).to eq(422)

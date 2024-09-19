@@ -28,8 +28,8 @@ RSpec.describe 'Gratitude Dates Index', type: :request do
       expect(date[:attributes][:quote]).to have_key(:affirmation)
       expect(date[:attributes][:quote]).to be_a(Hash)
 
-      expect(date[:attributes]).to_not have_key(:entry)
-      expect(date[:attributes][:entry]).to_not be_a(String)
+      expect(date[:attributes]).to have_key(:entry)
+      expect(date[:attributes][:entry]).to be_a(String)
     end
 
     first_date = dates.first
@@ -56,8 +56,8 @@ RSpec.describe 'Gratitude Dates Index', type: :request do
       expect(date[:attributes]).to have_key(:date)
       expect(date[:attributes][:date]).to be_a(String)
 
-      expect(date[:attributes]).to_not have_key(:entry)
-      expect(date[:attributes][:entry]).to_not be_a(String)
+      expect(date[:attributes]).to have_key(:entry)
+      expect(date[:attributes][:entry]).to be_a(String)
     end
   end
 end
