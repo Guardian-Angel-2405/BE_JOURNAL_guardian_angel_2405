@@ -1,11 +1,16 @@
 class Api::V0::GratitudesController < ApplicationController
 
+  # def create
+  #   gratitude = Gratitude.create(gratitude_params)
+  #   render json: GratitudeSerializer.new(gratitude), status: 201
+  # end
+
   def create
     gratitude = Gratitude.new(gratitude_params)
     if gratitude.save
       render json: GratitudeSerializer.new(gratitude), status: 201
     else
-      render json: CreationErrorSerializer.error_json, status: 422
+      render json: gratitude.errors, status: :unprocessable_entity
     end
   end
 
@@ -15,7 +20,8 @@ class Api::V0::GratitudesController < ApplicationController
   end
 
   def show # returns all entries for a given date and user
-    user_grats = Gratitude.where(user_id: params[:user_id], date: params[:date])
+    user_grats = gratitude_params
+    # user_grats = Gratitude.where(user_id: params[:user_id], date: params[:date])
     if user_grats.length == 0
       render json: ErrorSerializer.error_json, status: :not_found
     else
@@ -30,6 +36,7 @@ class Api::V0::GratitudesController < ApplicationController
 
   private
   def gratitude_params
-    params.require(:gratitude).permit(:entry, :date).merge(user_id: params[:user_id])
+    # params.require(:gratitude).permit(:user_id, :entry, :date)
+    params.permit(:entry, :date).merge(user_id: params[:user_id])
   end
 end
