@@ -6,7 +6,7 @@ class Api::V0::GratitudesController < ApplicationController
   # end
 
   def create
-    gratitude = Gratitude.create(gratitude_params)
+    gratitude = Gratitude.new(gratitude_params)
     if gratitude.save
       render json: GratitudeSerializer.new(gratitude), status: 201
     else
@@ -20,6 +20,7 @@ class Api::V0::GratitudesController < ApplicationController
   end
 
   def show # returns all entries for a given date and user
+    binding.pry
     user_grats = Gratitude.where(user_id: params[:user_id], date: params[:date])
     if user_grats.length == 0
       render json: ErrorSerializer.error_json, status: :not_found
