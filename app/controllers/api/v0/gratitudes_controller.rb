@@ -2,11 +2,10 @@ class Api::V0::GratitudesController < ApplicationController
 
   def create
     gratitude = Gratitude.new(gratitude_params)
-    # render json: GratitudeSerializer.new(gratitude), status: 201
     if gratitude.save
       render json: GratitudeSerializer.new(gratitude), status: 201
     else
-      render json: gratitude.errors, status: :unprocessable_entity
+      render json: CreationErrorSerializer.error_json, status: 422
     end
   end
 
