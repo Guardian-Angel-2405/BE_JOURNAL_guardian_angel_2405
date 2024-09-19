@@ -1,8 +1,13 @@
 class Api::V0::GratitudesController < ApplicationController
 
   def create
-    gratitude = Gratitude.create(gratitude_params)
-    render json: GratitudeSerializer.new(gratitude), status: 201
+    gratitude = Gratitude.new(gratitude_params)
+    # render json: GratitudeSerializer.new(gratitude), status: 201
+    if gratitude.save
+      render json: GratitudeSerializer.new(gratitude), status: 201
+    else
+      render json: gratitude.errors, status: :unprocessable_entity
+    end
   end
 
   def index # returns all dates for a given user
@@ -26,6 +31,6 @@ class Api::V0::GratitudesController < ApplicationController
 
   private
   def gratitude_params
-    params.require(:gratitude).permit(:user_id, :entry, :date)
+    params.require(:gratitude).permit(:entry, :date).merge(user_id: params[:user_id])
   end
 end
