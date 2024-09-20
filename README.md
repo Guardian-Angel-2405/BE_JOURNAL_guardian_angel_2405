@@ -17,6 +17,8 @@ Following this run `rails s` in the terminal. For example `localhost:3000` for t
 
 Alternatively you can utilize the deployed version of the site here: [Heroku Site]( ).
 
+## Making API Calls and Endpoints 
+
 ## Running the tests
 To run the tests for this repository, simply run `bundle exec rspec spec` from the command line while in the Guardian Angel projects directory. This will run all test files for the application. 
 ## Deployment
@@ -53,7 +55,6 @@ repository](https://github.com/PurpleBooth/a-good-readme-template/tags).
 - **Kat Brandt** - *BE and FE Project Manager* -
 ## License
 This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
-Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
-details![Uploading guardian_angel_logo.jpeg…]()
+Creative Commons License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
